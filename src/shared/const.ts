@@ -1,1 +1,2 @@
-export const { SSR, TMDB_API_KEY } = import.meta.env;
+export const TMDB_API_KEY =
+  import.meta.env.TMDB_API_KEY ?? process.env.TMDB_API_KEY;
