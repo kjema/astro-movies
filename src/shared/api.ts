@@ -10,7 +10,7 @@ export async function getMovies() {
 
   const response = await fetch(request, { method: "GET" });
 
-  if (!response.ok) return Promise.reject("fetch failed");
+  if (!response.ok) return Promise.reject(response.statusText);
   const data: TmdbResponse = await response.json();
 
   return data.results;
