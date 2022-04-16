@@ -1,9 +1,8 @@
 import { TmdbResponse } from "./types";
-import * as Const from "./const";
 
-export async function getMovies() {
+export async function getMovies(apiKey: string) {
   const url = new URL("3/movie/popular", "https://api.themoviedb.org");
-  url.searchParams.set("api_key", Const.TMDB_API_KEY ?? "");
+  url.searchParams.set("api_key", apiKey);
   url.searchParams.set("language", "en-US");
 
   const request = new Request(url.href);

@@ -2,7 +2,11 @@
 import "@/styles/global.css";
 import { getMovies } from "@/shared/api";
 
-const movies = await getMovies();
+const { SSR, TMDB_API_KEY } = import.meta.env;
+
+console.log({ SSR, TMDB_API_KEY });
+
+const movies = await getMovies(TMDB_API_KEY);
 
 // No product found
 if (!movies) {
