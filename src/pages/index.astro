@@ -3,8 +3,10 @@ import "@/styles/global.css";
 import { getMovies } from "@/shared/api";
 
 const { SSR, TMDB_API_KEY } = import.meta.env;
+const test = process.env.TMDB_API_KEY;
 
 console.log({ SSR, TMDB_API_KEY });
+console.log("test", test);
 
 const movies = await getMovies(TMDB_API_KEY);
 
