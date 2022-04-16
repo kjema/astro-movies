@@ -7,15 +7,15 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "watch": "onchange ./src/**/*.{ts,tsx,astro} -- prettier --write {{changed}}",
     "format": "prettier -w ./**/*.{css,js,mjs,jsx,ts,tsx,astro}"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^0.2.0",
     "@astrojs/vercel": "^0.1.2",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
     "@types/node": "^17.0.24",
     "astro": "^1.0.0-beta.12",
-    "onchange": "^7.1.0",
-    "prettier-plugin-astro": "0.1.0-next.4"
+    "prettier-plugin-astro": "0.1.0-next.4",
+    "prettier-plugin-tailwindcss": "^0.1.8"
   }
 }

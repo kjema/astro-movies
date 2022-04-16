@@ -1,6 +1,7 @@
 ---
-import "@/styles/global.css";
 import { getMovies } from "@/shared/api";
+import Layout from "@/layouts/Layout.astro";
+import Gallery from "@/components/Gallery.astro";
 
 const movies = await getMovies();
 
@@ -10,34 +11,8 @@ if (!movies) {
     statusText: "Not found",
   });
 }
-
-const title = `Movies ${Math.floor(Math.random() * 100)}`;
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
-
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  </head>
-  <body>
-    <main>
-      <header>
-        <div>
-          <h1 class="text-2xl">Movies</h1>
-        </div>
-      </header>
-      <main>
-        <section>
-          {movies.map((movie) => (
-            <>
-              <h2>{movie.title}</h2>
-            </>
-          ))}
-        </section>
-      </main>
-    </main>
-  </body>
-</html>
+<Layout>
+  <Gallery movies={movies} />
+</Layout>

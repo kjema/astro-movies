@@ -1,0 +1,24 @@
+---
+import { TMDB_BASE_IMAGE_URL } from "@/shared/constants";
+import { TmdbMovieItem } from "@/shared/types";
+
+export interface Props {
+  movie: TmdbMovieItem;
+}
+
+const { movie } = Astro.props;
+---
+
+<div class="group">
+  <div
+    class="rounded-lg aspect-w-16 aspect-h-9 w-full overflow-hidden"
+  >
+    <img
+      class="duration-200 ease-in-out group-hover:opacity-60 object-cover"
+      src={`${TMDB_BASE_IMAGE_URL}${movie.backdrop_path ?? movie.poster_path}`}
+      alt="movie poster"
+    />
+  </div>
+  <h3 class="mt-4 text-sm text-gray-400">{movie.release_date}</h3>
+  <p class="mt-1 text-base font-medium text-gray-100">{movie.title}</p>
+</div>

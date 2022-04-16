@@ -1,5 +1,5 @@
 import { TmdbResponse } from "./types";
-import * as Const from "./const";
+import * as Const from "./constants";
 
 export async function getMovies() {
   const url = new URL("3/movie/popular", "https://api.themoviedb.org");
