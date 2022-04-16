@@ -1,63 +1,44 @@
 ---
-import '../styles/global.css';
-import { getMovies } from "../shared/api"
+import "@/styles/global.css";
+import { getMovies } from "@/shared/api";
 
 const movies = await getMovies();
 
 // No product found
-if(!movies) {
+if (!movies) {
   return new Response(null, {
     status: 404,
-    statusText: 'Not found'
+    statusText: "Not found",
   });
 }
 
-
-// Component Script:
-// You can write any JavaScript/TypeScript that you'd like here.
-// It will run during the build, but never in the browser.
-// All variables are available to use in the HTML template below.
 let title = `Movies ${Math.floor(Math.random() * 100)}`;
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
 ---
+
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
-	<title>{title}</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
 
-	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-</head>
-<body>
-	<main>
-		<header>
-			<div>
-				  <h1>Movies</h1>
-			</div>
-		</header>
-		<main>
-		<section>
-		{movies.map(movie => (
-			<div>
-				<h2>{movie.title}</h2>
-			</div>
-		))}
-		</section>
-		</main>
-
-		<!--
-
-		You can also use imported framework components directly in your markup!
-		
-		Note: by default, these components are NOT interactive on the client.
-		The `client:visible` directive tells Astro to make it interactive.
-		
-		See https://docs.astro.build/core-concepts/component-hydration/ 
-
-		-->
-
-	</main>
-</body>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1 class="">Movies</h1>
+        </div>
+      </header>
+      <main>
+        <section>
+          {movies.map((movie) => (
+						<>
+							<h2>{movie.title}</h2>
+						</>
+					))}
+        </section>
+      </main>
+    </main>
+  </body>
 </html>
