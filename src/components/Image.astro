@@ -10,9 +10,7 @@ const { movie } = Astro.props;
 ---
 
 <div class="group">
-  <div
-    class="rounded-lg aspect-w-16 aspect-h-9 w-full overflow-hidden"
-  >
+  <div class="rounded-lg aspect-w-16 aspect-h-9 w-full overflow-hidden">
     <img
       class="duration-200 ease-in-out group-hover:opacity-60 object-cover"
       src={`${TMDB_BASE_IMAGE_URL}${movie.backdrop_path ?? movie.poster_path}`}
